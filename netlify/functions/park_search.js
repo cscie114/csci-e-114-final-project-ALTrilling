@@ -24,7 +24,7 @@ const handler = async function (event, context) {
             headers: {
                 "Authorization": `Bearer ${process.env.MEILI_SEARCH_KEY}`
             }
-        })
+        });
 
         if (!response.ok) {
             return {
