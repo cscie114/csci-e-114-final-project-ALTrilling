@@ -1,0 +1,38 @@
+---
+title: National Parks
+layout: base
+pagination:
+    data: parks.data
+    size: 1
+    alias: park
+    addAllPagesToCollections: true
+permalink: /parks/{{ park.parkCode }}/
+tags:
+- "parks"
+eleventyComputed:
+  title: "{{ park.fullName }}"
+---
+paginated page
+<h2>{{ park.fullName }} | {{ park.parkCode }}</h2>
+<p>{{ park.description }}</p>
+<img
+  src="{{ park.images[0].url }}"
+  alt="{{ park.images[0].altText }}"
+  width="300"
+  height="300">
+<button id="places_info">click this to get places in this park</button>
+<p hidden id="park_code_elem">{{ park.parkCode }}</p>
+<script>
+  const park_code = document.getElementById("park_code_elem").innerHTML;
+
+// for whatever reason, whenever i try to save .liquid files, the formatting gets messed up. sorry about that.
+  document.getElementById("places_info").addEventListener("click", function() {
+    fetch(`/.netlify/functions/places?park_code=${park_code}`).then(response => response.json()).then(data => {
+
+// the titles are
+      alert(data.data.data.map(elem => elem.title));
+    }).catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  });
+</script>

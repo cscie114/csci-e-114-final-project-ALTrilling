@@ -1,0 +1,11 @@
+# Local Netlify folder
+.netlify
+TODO
+
+node_modules
+dist
+.cache
+.env
+notes
+TODO
+ask

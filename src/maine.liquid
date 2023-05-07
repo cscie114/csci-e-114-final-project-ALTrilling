@@ -1,0 +1,7 @@
+---
+layout: base
+title: maine parks data (shown DRYly)
+---
+{% for d in maine.data %}
+  {% render "park_data_page", park_data: d %}
+{% endfor %}

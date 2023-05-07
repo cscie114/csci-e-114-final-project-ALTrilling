@@ -1,0 +1,35 @@
+{
+  "name": "assignment-2-eleventy-altrilling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "jest --passWithNoTests",
+    "build": "node dump_nps && eleventy",
+    "start": "eleventy --serve",
+    "lint": "npx eslint src/**/*.js && npx eslint netlify/functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cscie114/assignment-5---ci-cd-ALTrilling.git"
+  },
+  "keywords": [],
+  "author": "Adrian Trilling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cscie114/assignment-5---ci-cd-ALTrilling/issues"
+  },
+  "homepage": "https://github.com/cscie114/assignment-5---ci-cd-ALTrilling#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "eslint": "^8.39.0",
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "meilisearch": "^0.32.3",
+    "node-fetch": "^3.3.1"
+  }
+}

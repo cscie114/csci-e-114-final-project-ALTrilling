@@ -1,0 +1,30 @@
+---
+title: All National Parks
+layout: base
+---
+<h1>All National Parks</h1>
+<p>All of these links should link to pages that were automatically generated through 11ty pagination</p>
+<ul>
+  <input id="search">
+  <script>
+    const search_input = document.getElementById('search');
+    search_input.addEventListener("input", function() {
+      console.log(search_input.value);
+      fetch(`/.netlify/functions/park_search?text=${
+        search_input.value
+      }`).then(response => response.json()).then(data => {
+        alert(data.data.data.map(elem => elem.title));
+      }).catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    });
+  </script>
+
+  {% comment %}
+  I'm going to leave this in as there is no need to make an http request to get the data the first time the page is loaded.
+  {% endcomment %}{% for item in collections.parks %}
+    <li>
+      <a href="{{ item.url }}">{{ item.data.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
