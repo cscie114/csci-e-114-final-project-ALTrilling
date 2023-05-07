@@ -18,27 +18,28 @@ const handler = async function (event, context) {
     });
 
     try {
-        return fetch(`${process.env.MEILI_URL}/indexes/parks/search?${query}`, {
+        const response = await fetch(`${process.env.MEILI_URL}/indexes/parks/search?${query}`, {
             // the reason why i used the search key in favor of the master key was that if i made some mistake here and somehow granted users access to this key, 
             // users would only gain further access to read permissions but not write permissions (as they would gain if the master key was exposed).
             headers: {
                 "Authorization": `Bearer ${process.env.MEILI_SEARCH_KEY}`
             }
         })
-        .then(response => response.json()
-        .then(data => {
-            // console.log("data: ", data)
+
+        if (!response.ok) {
             return {
                 statusCode: response.status,
-                body: JSON.stringify({ data: data })
+                body: response.statusText
             };
-        }).catch(err => {
-            console.log("err: ", err);
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ err_message: err.message })
-            };
-    }));
+        }
+
+        const data = await response.json();
+
+        return {
+            statusCode: response.status,
+            body: JSON.stringify({ data: data })
+        };
+
 
                 
             
