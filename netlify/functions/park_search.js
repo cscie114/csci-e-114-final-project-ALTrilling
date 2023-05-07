@@ -17,9 +17,9 @@ const handler = async function (event, context) {
         limit: limit,
     });
 
-    console.log("process.env.MEILI_URL: ", process.env.MEILI_URL)
-    console.log("process.env.MEILI_SEARCH_KEY: ", process.env.MEILI_SEARCH_KEY)
-    console.log("query: ", query);
+    // console.log("process.env.MEILI_URL: ", process.env.MEILI_URL)
+    // console.log("process.env.MEILI_SEARCH_KEY: ", process.env.MEILI_SEARCH_KEY)
+    // console.log("query: ", query);
 
     try {
         const response = await fetch(`${process.env.MEILI_URL}/indexes/parks/search?${query}`, {
