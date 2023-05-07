@@ -4,22 +4,9 @@ layout: base
 ---
 <h1>All National Parks</h1>
 <p>All of these links should link to pages that were automatically generated through 11ty pagination</p>
-<ul>
-  <input id="search">
-  <script>
-    const search_input = document.getElementById('search');
-    search_input.addEventListener("input", function() {
-      console.log(search_input.value);
-      fetch(`/.netlify/functions/park_search?text=${
-        search_input.value
-      }`).then(response => response.json()).then(data => {
-        alert(data.data.data.map(elem => elem.title));
-      }).catch(error => {
-        console.error('Error fetching data:', error);
-      });
-    });
-  </script>
+<input id="search">
 
+<ul>
   {% comment %}
   I'm going to leave this in as there is no need to make an http request to get the data the first time the page is loaded.
   {% endcomment %}{% for item in collections.parks %}
@@ -28,3 +15,33 @@ layout: base
     </li>
   {% endfor %}
 </ul>
+
+
+<script>
+  const search_input = document.getElementById('search');
+  search_input.addEventListener("input", function() {
+    console.log(search_input.value);
+
+    fetch(`/.netlify/functions/park_search?text=${
+      search_input.value
+    }`).then(response => response.json()).then(data => {
+      const park_response = data.data.hits;
+
+// now replace the list with the new list
+      const list = document.querySelector('ul');
+      list.innerHTML = '';
+      park_response.forEach(park => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `/parks/${
+          park.parkCode
+        }`;
+        a.innerText = park.title;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }).catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  });
+</script>

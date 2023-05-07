@@ -10,7 +10,7 @@ const parks_func = require('./src/_data/parks.js');
 (async () => {
   
   let parks_list = await parks_func();
-  // in meilisearch, we only want the fullName and description. we also want the image url so we can display it.
+  // in meilisearch, we only want the fullName and description (parkCode is also handy). we also want the image url so we can display it.
   // there are sometimes multiple images, but we'll just use the first one.
   // however, meilisearch requires an id, so we'll use the park's id. the id must confirm to meilisearch's id requirements, but it already does, so that is fine.
   
@@ -19,8 +19,9 @@ const parks_func = require('./src/_data/parks.js');
     return {
       title: park.fullName,
       description: park.description,
+      parkCode: park.parkCode,
       id: park.id,
-      poster: park.images[0].url
+      poster: park.images[0].url,
     }
   })
 
@@ -29,7 +30,7 @@ const parks_func = require('./src/_data/parks.js');
   
 
     const client = new MeiliSearch({
-        host: process.env.IP_ADDR,
+        host: process.env.MEILI_URL,
         apiKey: process.env.MEILI_MASTER_KEY,
     });
 
