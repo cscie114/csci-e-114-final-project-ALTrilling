@@ -27,11 +27,11 @@ const parks_func = require('./src/_data/parks.js');
 
   // console.log(parks);
 
-  console.log("working up to here qwerty")
+  // console.log("working up to here qwerty")
 
-  console.log("process.env.MEILI_URL: ", process.env.MEILI_URL)
-  console.log("process.env.MEILI_MASTER_KEY: ", process.env.MEILI_MASTER_KEY)
-  console.log("working up to here uiop")
+  // console.log("process.env.MEILI_URL: ", process.env.MEILI_URL)
+  // console.log("process.env.MEILI_MASTER_KEY: ", process.env.MEILI_MASTER_KEY)
+  // console.log("working up to here uiop")
 
   
 
@@ -39,7 +39,7 @@ const parks_func = require('./src/_data/parks.js');
         host: process.env.MEILI_URL,
         apiKey: process.env.MEILI_MASTER_KEY,
     });
-    console.log("working up to here asdf")
+    // console.log("working up to here asdf")
 
   // An index is where the documents are stored.
   const index = client.index('parks', { primaryKey: 'id' });

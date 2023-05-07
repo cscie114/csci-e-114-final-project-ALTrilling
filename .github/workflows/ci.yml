@@ -22,6 +22,11 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm run build
+        env: 
+          NPS_API_KEY: ${{secrets.NPS_API_KEY}}
+          MEILI_URL: ${{secrets.MEILI_URL}}
+          MEILI_MASTER_KEY: ${{secrets.MEILI_MASTER_KEY}}
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -47,4 +52,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NPS_API_KEY: ${{secrets.NPS_API_KEY}}
+          MEILI_URL: ${{secrets.MEILI_URL}}
+          MEILI_MASTER_KEY: ${{secrets.MEILI_MASTER_KEY}}
         timeout-minutes: 1
