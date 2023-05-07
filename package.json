@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run test:unit",
     "test:unit": "jest --passWithNoTests",
-    "build": "node dump_nps && eleventy",
+    "build": "node dump_nps.js && eleventy",
     "start": "eleventy --serve",
     "lint": "npx eslint src/**/*.js && npx eslint netlify/functions"
   },
