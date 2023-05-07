@@ -1,7 +1,7 @@
 name: Continuous Integration
 
 env:
-  NPS_API_KEY: ${{secrets.NPS_API_KEY}}
+  NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
 
 on:
   push:

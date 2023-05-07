@@ -17,6 +17,10 @@ const handler = async function (event, context) {
         limit: limit,
     });
 
+    console.log("process.env.MEILI_URL: ", process.env.MEILI_URL)
+    console.log("process.env.MEILI_SEARCH_KEY: ", process.env.MEILI_SEARCH_KEY)
+    console.log("query: ", query);
+
     try {
         const response = await fetch(`${process.env.MEILI_URL}/indexes/parks/search?${query}`, {
             // the reason why i used the search key in favor of the master key was that if i made some mistake here and somehow granted users access to this key, 

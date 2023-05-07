@@ -1,5 +1,5 @@
 {
-  "name": "assignment-2-eleventy-altrilling",
+  "name": "final-altrilling",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cscie114/assignment-5---ci-cd-ALTrilling.git"
+    "url": "git+https://github.com/cscie114/csci-e-114-final-project-ALTrilling.git"
   },
   "keywords": [],
   "author": "Adrian Trilling",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cscie114/assignment-5---ci-cd-ALTrilling/issues"
+    "url": "https://github.com/cscie114/csci-e-114-final-project-ALTrilling/issues"
   },
-  "homepage": "https://github.com/cscie114/assignment-5---ci-cd-ALTrilling#readme",
+  "homepage": "https://github.com/cscie114/csci-e-114-final-project-ALTrilling#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-fetch": "^3.0.0",
