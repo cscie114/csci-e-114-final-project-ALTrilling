@@ -1,7 +1,7 @@
 # final-project
 Final Project
 
-You can also directly see the meilisearch dashboard at http://146.190.209.16/ but you need to enter an api key with search permissions (both api keys in the .env file) to view the data
+You can also directly see the meilisearch dashboard at http://146.190.209.16/ but you need to enter an api key with search permissions (both api keys in the .env file) to view the data.
 
 Created the search only key with 
 https://www.meilisearch.com/docs/learn/security/master_api_keys
