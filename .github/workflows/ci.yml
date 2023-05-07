@@ -23,9 +23,9 @@ jobs:
       - run: npm run test
       - run: npm run build
         env: 
-          NPS_API_KEY: ${{secrets.NPS_API_KEY}}
-          MEILI_URL: ${{secrets.MEILI_URL}}
-          MEILI_MASTER_KEY: ${{secrets.MEILI_MASTER_KEY}}
+          NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+          MEILI_URL: ${{ secrets.MEILI_URL }}
+          MEILI_MASTER_KEY: ${{ secrets.MEILI_MASTER_KEY }}
 
   deploy:
     needs: build
@@ -38,6 +38,10 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+        env:
+          NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+          MEILI_URL: ${{ secrets.MEILI_URL }}
+          MEILI_MASTER_KEY: ${{ secrets.MEILI_MASTER_KEY }}
       
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
@@ -52,7 +56,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NPS_API_KEY: ${{secrets.NPS_API_KEY}}
-          MEILI_URL: ${{secrets.MEILI_URL}}
-          MEILI_MASTER_KEY: ${{secrets.MEILI_MASTER_KEY}}
+          NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+          MEILI_URL: ${{ secrets.MEILI_URL }}
+          MEILI_MASTER_KEY: ${{ secrets.MEILI_MASTER_KEY }}
         timeout-minutes: 1
