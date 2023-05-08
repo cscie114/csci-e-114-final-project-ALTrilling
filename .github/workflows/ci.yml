@@ -19,7 +19,7 @@ jobs:
           node-version: '19.x'
           cache: 'npm'
       - run: pwd
-      - run: tree /
+      - run: tree /home/runner/work/
       - run: npm ci
       - run: npm run lint
       - run: npm run test
