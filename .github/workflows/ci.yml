@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: '19.x'
           cache: 'npm'
+      - run: pwd
+      - run: tree /
       - run: npm ci
       - run: npm run lint
       - run: npm run test
@@ -34,7 +36,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: '../dist'
+          publish-dir: './dist'
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
