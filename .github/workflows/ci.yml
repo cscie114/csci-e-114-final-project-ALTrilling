@@ -18,8 +18,6 @@ jobs:
         with:
           node-version: '19.x'
           cache: 'npm'
-      - run: pwd
-      - run: tree /home/runner/work/
       - run: npm ci
       - run: npm run lint
       - run: npm run test
@@ -28,14 +26,7 @@ jobs:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
           MEILI_URL: ${{ secrets.MEILI_URL }}
           MEILI_MASTER_KEY: ${{ secrets.MEILI_MASTER_KEY }}
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:      
-      - run: pwd
-      - run: tree /home/runner/work/
-      - name: Deploy to Netlify
+      - name: Deploy on netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './dist'
