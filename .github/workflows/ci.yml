@@ -31,6 +31,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '19.x'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+        env:
+          NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+          MEILI_URL: ${{ secrets.MEILI_URL }}
+          MEILI_MASTER_KEY: ${{ secrets.MEILI_MASTER_KEY }}
+      
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
