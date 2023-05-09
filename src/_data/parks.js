@@ -25,16 +25,5 @@ module.exports = async function() {
         type: "json",
         cacheDuration: "1d"
     });
-
-    // return fetch(api_url + "?" + query, {
-    //     headers: new Headers({
-    //         // found this by googling "what is my user agent" and copying the result
-    //         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome"
-    //     })
-    // }).then(res => res.json());
-
-    // let json = await JSON.parse(response.toString());
-    // console.log(response);
-    // return json;
     return response;
 };

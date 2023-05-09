@@ -21,6 +21,7 @@ layout: base
   search_input.addEventListener("input", function() {
     console.log(search_input.value);
 
+// this hits the park_search function in functions/park_search.js. that in turn proxies the results from meiliSearch (more info in readme)
     fetch(`/.netlify/functions/park_search?text=${
       search_input.value
     }`).then(response => response.json()).then(data => {

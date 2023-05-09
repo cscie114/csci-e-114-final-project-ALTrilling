@@ -1,3 +1,5 @@
+// this fetches the places for a particular park (based on the parkCode)
+
 const api_url = "https://developer.nps.gov/api/v1/places";
 
 
