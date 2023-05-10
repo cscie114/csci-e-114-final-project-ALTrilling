@@ -19,6 +19,7 @@ Really the only thing that I added in the serverless function was I set the limi
 Obvioiusly in production, running a proxy with a serverless function probably isn't a great idea.
 
 Incidentally I actually did create a search key (this is what the serverless function uses, so that way even if I somehhow exposed that key, users couldn't abuse it to heavily as it only has searching functionality) with the command
+```console
 curl \
   -X POST 'MEILI_URL/keys' \
   -H 'Content-Type: application/json' \
@@ -29,6 +30,7 @@ curl \
     "indexes": ["parks"],
     "expiresAt": "2024-01-01T00:00:00Z"
   }'
+```
 https://www.meilisearch.com/docs/learn/security/master_api_keys
 while I used curl here meilisearch offers robust sdks in a variety of languages.
 
